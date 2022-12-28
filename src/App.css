@@ -227,3 +227,36 @@
   transform: translate(-50%,-50%);
   animation: winner 2s forwards 0s 10;
 }
+
+@keyframes sparkle {
+  0% {
+    border: 1px solid black;
+    background-color: black;
+    color:black
+  }
+  50% {
+    /* border: 2px solid rgb(236, 161, 9); */
+
+    background-color: grey;
+    color:grey
+  }
+  100% {
+    border: 1px solid black;
+  }
+}
+
+.paints .paintbox {
+  animation: sparkle 0.3s both 0s 1;
+}
+
+.paints .paintbox:nth-child(1) { animation-delay: 0.1s }
+.paints .paintbox:nth-child(2) { animation-delay: 0.2s }
+.paints .paintbox:nth-child(3) { animation-delay: 0.3s }
+.paints .paintbox:nth-child(4) { animation-delay: 0.4s }
+.paints .paintbox:nth-child(5) { animation-delay: 0.5s }
+.paints .paintbox:nth-child(6) { animation-delay: 0.6s }
+.paints .paintbox:nth-child(7) { animation-delay: 0.7s }
+.paints .paintbox:nth-child(8) { animation-delay: 0.8s }
+.paints .paintbox:nth-child(9) { animation-delay: 0.9s }
+.paints .paintbox:nth-child(10) { animation-delay: 1s }
+.paints .paintbox:nth-child(11) { animation-delay: 1.1s }
