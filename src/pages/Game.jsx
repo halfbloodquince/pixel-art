@@ -18,7 +18,7 @@ export default function Game({mult}) {
         12,12,8,8,12,12,8,8,12,12
         ]
 
-    const whiteText = ["black", "saddlebrown"]
+    const whiteText = ["black", "saddlebrown", "green", "red"]
 
     const num2 = numbers.map((num, i) => ({id:i, n:num, g:0}))
     const [gameState, setGameState] = useState(num2)
@@ -29,16 +29,18 @@ export default function Game({mult}) {
         // console.log(event.target.style.backgroundColor)
         setPaint(event.target.style.backgroundColor)
         const colour = event.target.style.backgroundColor;
-        event.target.style.border = "4px solid lightgrey"
+        event.target.style.border = "4px solid #dacaca"
 
-        document.body.style.cursor = `url(../src/assets/${colour}paint.png), pointer`
+        document.body.style.cursor = `url(/brushes/${colour}paint.png), pointer`
 
-        if (border) {
+        if (border && event.target !== border) {
             border.style.border = "1px solid black"
         }
         setBorder(event.target)
         setCurrent(event.target.innerHTML / mult)
     }
+
+
 
     const updateState = (x) => {
         const newState = gameState.map(obj => {
@@ -56,9 +58,11 @@ export default function Game({mult}) {
 
         const paintedSquare = event.target.getAttribute("class").slice(-2)
 
-        if (paint)
-            {if (current == gameState[Number(paintedSquare)].n) {
-                // console.log("correctomundo")
+        if (paint && !chickenDinner)
+            {
+                updateState(paintedSquare);
+
+                if (current == gameState[Number(paintedSquare)].n) {
                 event.target.setAttribute("style", `background-color: ${paint}; color: ${paint}`)
             }
             else if (whiteText.includes(paint)) {  
@@ -68,7 +72,7 @@ export default function Game({mult}) {
                 event.target.setAttribute("style", `background-color: ${paint}; color: black`)}}
         
 
-        updateState(paintedSquare)
+        
         // setGameState((gameState) => gameState.map(square, i))
 
     }
@@ -92,8 +96,12 @@ export default function Game({mult}) {
     }, [paint])
 
     useEffect(() => {
+
+    }, [paint])
+
+    useEffect(() => {
         if (chickenDinner) {document.body.style.cursor = 'cursor'}
-    })
+    }, [chickenDinner])
 
 
     return (
@@ -106,7 +114,7 @@ export default function Game({mult}) {
                         <div className="current--colour" id="current--colour">{current ? current*mult : "?"}</div>
                         <h3 className="rules--title">Rules</h3>
                         <ol className="rules--list">
-                        <li>Click on a colour to select it.</li>
+                        <li>Hover over a colour to select it.</li>
                         <li>Find any multiplications that equal the selected colour.</li>
                         <li>Click on each multiplication to colour it in.</li>
                         <li>If the multiplication matches the colour, it will disappear.</li>
@@ -120,7 +128,7 @@ export default function Game({mult}) {
                     <div className="paint--container">
                         <div className="paint--text">Select Colour</div>
                         <div className="paints">
-                            {colours.map((obj) => (<div key={`paint${obj.num}`} onClick={(event) => handlePaintClick(event)} className="paintbox" style={whiteText.includes(obj.colour)  ?  {backgroundColor: obj.colour, color:"white"} : {backgroundColor: obj.colour}} >{obj.num*mult}</div>))}
+                            {colours.map((obj) => (<div key={`paint${obj.num}`} onMouseOver={(event) => handlePaintClick(event)} className="paintbox" style={whiteText.includes(obj.colour)  ?  {backgroundColor: obj.colour, color:"white"} : {backgroundColor: obj.colour}} >{obj.num*mult}</div>))}
                         </div>
                     </div>
 

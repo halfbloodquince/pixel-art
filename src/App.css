@@ -70,13 +70,6 @@
   background-color: var(--bg);
 }
 
-/* .gamebox {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(71, 71, 91);
-} */
 
 .pixel--title {
   font-size: 2.2rem;
@@ -105,6 +98,7 @@
   top:5%;
   left: 50%;
   transform: translateX(-50%);
+  border-radius: 10px;
 }
 
 .pixel--square {
@@ -115,6 +109,7 @@
   align-items: center;
   background-color: rgb(250, 244, 235);
   font-size: 0.9rem;
+  user-select: none;
 }
 
 .paint--container {
@@ -135,6 +130,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 50%;
+  /* cursor: pointer; */
 }
 
 .paints {
@@ -143,10 +139,7 @@
   gap: 4px;
 }
 
-.paintbox:hover {
-  border: 3px solid rgb(196, 196, 196);
-  border-radius: 50%;
-}
+
 .paint--text {
   font-size: 1.2rem;
   margin-bottom: 20px;
@@ -230,7 +223,6 @@
 
 @keyframes sparkle {
   0% {
-    border: 1px solid black;
     background-color: black;
     color:black
   }
@@ -241,9 +233,9 @@
     color:grey
   }
   100% {
-    border: 1px solid black;
   }
 }
+
 
 .paints .paintbox {
   animation: sparkle 0.3s both 0s 1;
@@ -260,3 +252,7 @@
 .paints .paintbox:nth-child(9) { animation-delay: 0.9s }
 .paints .paintbox:nth-child(10) { animation-delay: 1s }
 .paints .paintbox:nth-child(11) { animation-delay: 1.1s }
+
+/* .paintbox:hover {
+  border: 3px solid hsl(0, 18%, 82%);
+} */
