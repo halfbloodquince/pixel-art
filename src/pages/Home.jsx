@@ -23,7 +23,7 @@ export default function Home({mult, setMult}) {
 
     return (
         <div className="Home">
-            <h1 className="game--title">PIXEL TIMES TABLES</h1>
+            <h1 className="game--title">pixel art x times tables</h1>
             <div className="select">
                 <h3>Choose your times table: </h3>
                 <select onChange={(event) => handleChange(event)} value={mult} className="select--button" name="times--table--selct">
