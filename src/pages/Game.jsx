@@ -1,4 +1,4 @@
-import azure from "../../public/brushes/azurepaint.png"
+
 
 import { useEffect, useState } from "react"
 import data from '../components/data'
