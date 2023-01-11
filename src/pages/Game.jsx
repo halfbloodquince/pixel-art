@@ -120,6 +120,29 @@ export default function Game({mult}) {
     }, [chickenDinner])
 
 
+    // fml
+
+    // function delay(i) {
+    //     setTimeout(() => {
+    //       console.log(colours[i].colour)
+    //       document.body.style.cursor = `url(/brushes/${colours[i].colour}paint.png), pointer`
+    //     }, i*200);
+    //   }
+
+    //   function delay2() {
+    //     setTimeout(() => {
+    //         document.body.style.cursor = "auto"
+    //     }, 2400);
+    //   }
+
+    // useEffect(() => {
+    //     for (let i = 0; i < colours.length; i++) {
+    //         delay(i)
+    //     }
+    //     delay2()
+    // }, [])
+
+
     return (
         <div className="Game">
             <div className="game--container">
