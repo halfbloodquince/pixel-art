@@ -1,25 +1,32 @@
 
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Home({mult, setMult}) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate('/pixels')
+        navigate('/app')
     }
 
     const handleChange = (event) => {
         setMult(event.target.value)
     }
 
-    document.body.style.cursor = 'cursor'
+
+    useEffect(() => {
+
+        document.body.style.cursor = "auto"
+        
+    }, [])
+
 
     return (
         <div className="Home">
             <h1 className="game--title">PIXEL TIMES TABLES</h1>
             <div className="select">
                 <h3>Choose your times table: </h3>
-                <select onChange={(event) => handleChange(event)} className="select--button" name="times--table--selct">
+                <select onChange={(event) => handleChange(event)} value={mult} className="select--button" name="times--table--selct">
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>

@@ -1,3 +1,5 @@
+import azure from "../../public/brushes/azurepaint.png"
+
 import { useEffect, useState } from "react"
 import data from '../components/data'
 
@@ -7,13 +9,29 @@ export default function Game({mult}) {
     const [border, setBorder] = useState(null)
     const [current, setCurrent] = useState(null)
 
+
     const numbers = data[0].numbers
     const colours = data[0].colours
+    const colours2 = data[0].colours
 
-    const whiteText = ["black", "saddlebrown", "green", "red"]
+    const whiteText = ["black", "saddlebrown", "green", "red", "dodgerblue"]
 
     const num2 = numbers.map((num, i) => ({id:i, n:num, g:0}))
     const [gameState, setGameState] = useState(num2)
+
+    
+
+    const handleMouseOver = () => {
+        if (!paint) {
+            document.body.style.cursor = "pointer"
+        }
+    }
+
+    const handleMouseLeave = () => {
+        if (!paint) {
+            document.body.style.cursor = "auto"
+        }
+    }
 
     const handlePaintClick = (event) => {
         // console.log(event.target.style.backgroundColor)
@@ -21,7 +39,9 @@ export default function Game({mult}) {
         const colour = event.target.style.backgroundColor;
         event.target.style.border = "4px solid #dacaca"
 
-        document.body.style.cursor = `url(/brushes/${colour}paint.png), pointer`
+        // document.body.style.cursor = `url(/brushes/${colour}paint.png), pointer`
+
+        
 
         if (border && event.target !== border) {
             border.style.border = "1px solid black"
@@ -29,6 +49,15 @@ export default function Game({mult}) {
         setBorder(event.target)
         setCurrent(event.target.innerHTML / mult)
     }
+
+
+    useEffect(() => {
+
+        if (paint) {
+            document.body.style.cursor = `url(/brushes/${paint}paint.png), pointer`
+        }
+    }, [paint])
+
 
 
 
@@ -85,9 +114,6 @@ export default function Game({mult}) {
         
     }, [paint])
 
-    useEffect(() => {
-
-    }, [paint])
 
     useEffect(() => {
         if (chickenDinner) {document.body.style.cursor = 'cursor'}
@@ -118,7 +144,14 @@ export default function Game({mult}) {
                     <div className="paint--container">
                         <div className="paint--text">Select Colour</div>
                         <div className="paints">
-                            {colours.map((obj) => (<div key={`paint${obj.num}`} onMouseOver={(event) => handlePaintClick(event)} className="paintbox" style={whiteText.includes(obj.colour)  ?  {backgroundColor: obj.colour, color:"white"} : {backgroundColor: obj.colour}} >{obj.num*mult}</div>))}
+                            {colours.map((obj) => (
+                            <div key={`paint${obj.num}`} 
+                                onMouseOver={(event) => handleMouseOver(event)}
+                                onMouseLeave={(event) => handleMouseLeave(event)} 
+                                onMouseDown={(event) => handlePaintClick(event)} 
+                                className="paintbox" 
+                                style={whiteText.includes(obj.colour)  ?  {backgroundColor: obj.colour, color:"white"} : {backgroundColor: obj.colour}} >{obj.num*mult}
+                            </div>))}
                         </div>
                     </div>
 
