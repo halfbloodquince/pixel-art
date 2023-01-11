@@ -41,6 +41,7 @@ export default function Home({mult, setMult}) {
                 </select>
             </div>
             <button className="play--button" onClick={handleClick}>Play</button>
+
         </div>
     )
 }

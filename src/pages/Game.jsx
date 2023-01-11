@@ -1,4 +1,4 @@
-
+// import jpark from "../../public/jpark.png"
 
 import { useEffect, useState } from "react"
 import data from '../components/data'
@@ -177,9 +177,13 @@ export default function Game({mult}) {
                             </div>))}
                         </div>
                     </div>
-
-                    {chickenDinner && <h1 className="chicken--dinner">YOU DID IT!</h1>}
-                </div>
+                                    
+                    {chickenDinner && <div className="winner--winner">
+                                        <h1 className="chicken--dinner">YOU DID IT!</h1>
+                                        <img className="chicken--dinner--man" src="jpark.png" alt="" />
+                                    </div>
+                                    }                                    
+                </div>    
         </div>
     )
 }

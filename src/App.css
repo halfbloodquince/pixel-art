@@ -222,10 +222,18 @@
   font-size: 4rem;
   color: rgb(153, 60, 196);
   position: absolute;
-  left: 50%;
-  top:50%;
+  left: 60%;
+  top:45%;
   transform: translate(-50%,-50%);
-  animation: winner 2s forwards 0s 10;
+  animation: winner 2s forwards 0s 5;
+}
+
+.chicken--dinner--man {
+  position: absolute;
+  left: 39%;
+  top:55%;
+  transform: translate(-50%,-50%);
+  animation: winner 2s forwards 0s 5;
 }
 
 @keyframes sparkle {
