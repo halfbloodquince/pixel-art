@@ -1,7 +1,7 @@
 
 
 :root {
-  --bg: #253053;
+  --bg: #000000;
 }
 
 * {
@@ -23,14 +23,14 @@
 }
 
 .game--title {
-  color: #c19ce3;
+  color: #fcfcfc;
   font-size: 3rem;
   margin-bottom: 30px;
 }
 
 .select {
   padding: 20px;
-  color: rgb(229, 218, 233);
+  color: rgb(253, 253, 253);
   display: flex;
   width: 400px;
   justify-content: center;
@@ -45,7 +45,7 @@
 .select--button {
   padding:5px;
   font-size: 1.2rem;
-  background-color: #dacee6;
+  background-color: #f2f1f4;
   color: rgb(46, 46, 46);
   border-radius: 7px;
 }
@@ -55,12 +55,17 @@
   padding:10px 20px 10px 20px;
   border-radius: 7px;
   font-size: 2rem;
-  background-color: #c1a7da;
+  background-color: #fefefe;
+  cursor: pointer;
   border: none;
 }
 
+.play--button {
+  animation: button 40s infinite linear;
+}
+
 .play--button:hover {
-  background-color: #523172;
+  background-color: #282626;
   color: white;
 }
 
@@ -76,7 +81,7 @@
 .pixel--title {
   font-size: 2.2rem;
   padding: 20px;
-  color: #3c4a83 ;
+  color: #000000;
   position: absolute;
   top:0;
 }
@@ -88,8 +93,27 @@
   grid-template-columns: repeat(10, 1fr);
 }
 
+.svg--game--container {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top:60px;
+  left: 50%;
+  /* background-color: red; */
+}
+
+.svg--game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
 .game--container {
-  background-color: rgb(255, 255, 255);
+  background-color: #e7e8e9;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -271,3 +295,191 @@
 /* .paintbox:hover {
   border: 3px solid hsl(0, 18%, 82%);
 } */
+
+/* Homepage neon paint */
+
+.svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(60px);
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+}
+
+.svg--container {
+  width: 250px;
+  height: 250px;
+  /* position: absolute; */
+  margin-bottom: 100px;
+}
+
+.paint--brush, .brush--blur {
+  /* display:block; */
+  animation: paintbrush 4s infinite linear;
+}
+
+.paint--brush--2 {
+  animation: paintbrushTwo 4s infinite linear;
+
+}
+
+@keyframes paintbrushTwo {
+  0% {
+    stroke: #4df6ee
+  }
+  4% {
+    stroke: #77e7e7;
+  }
+  50% {
+    stroke: #6ab9db;
+  }
+  100% {
+    stroke: #4df6ee
+  }
+}
+
+@keyframes paintbrush {
+  0% {
+    stroke: none
+  }
+  4% {
+    stroke: #77e7e7;
+  }
+  50% {
+    stroke: #6ab9db;
+  }
+  100% {
+    stroke: #4df6ee
+  }
+  
+}
+
+.paint--blur {
+  animation: blurChange 3s infinite linear;
+}
+
+.blur--1 {
+  /* stroke: #e8e2ed; */
+  animation: blurChange 3s infinite linear;
+}
+
+.blur--2 {
+  animation: blurChange 3s infinite linear;
+}
+
+.blur--3 {
+  animation: blurChange 3s infinite linear;
+}
+
+.drop--1, .blur--1 {
+  animation: dropOne 3s infinite linear;
+  
+}
+
+.blur--3, .drop--3, .blur--2, .drop--2,.blur--1, .drop--1, .paint--blur, .paint--on--brush {
+
+  animation: colourChange 40s infinite linear;
+}
+
+
+
+
+@keyframes dropOne {
+  from {display: none;}
+} 
+
+@keyframes blurChange {
+  0% {}
+  33% {
+    stroke: white;
+    /* opacity: 0.5; */
+    }
+  40% {}
+}
+
+@keyframes colourChange {
+  0% { 
+    stroke:#f744af;
+    fill: #f744af
+  }
+  10% { 
+    stroke:#f74489;
+    fill: #f74489
+  }
+  20% { 
+    stroke:#f7444a;
+    fill: #f7444a
+  } 
+  30% { 
+    stroke:#f36818;
+    fill: #f36818
+  }
+  40% { 
+    stroke:#18b1f3;
+    fill: #18b1f3
+  }
+  50% { 
+    stroke:#18f37b;
+    fill: #18f37b
+  }
+  60% {
+    stroke:#fafffe;
+    fill: #ffffff
+  }
+  70% { 
+    stroke:#2ee2f3;
+    fill: #2ee2f3
+  }
+  80% { 
+    stroke:#be44f7;
+    fill: #be44f7
+  }
+  90% { 
+    stroke:#8044f7;
+    fill: #8044f7
+  }
+  100% { 
+    stroke:#f744af;
+    fill: #f744af
+  }
+  
+}
+
+@keyframes button {
+  0% { 
+    background-color:#f744af;
+  }
+  10% { 
+    background-color:#f74489;
+  }
+  20% { 
+    background-color:#f7444a;
+  } 
+  30% { 
+    background-color:#f36818;
+  }
+  40% { 
+    background-color:#18b1f3;
+  }
+  50% { 
+    background-color:#18f37b;
+  }
+  60% {
+    background-color:#a9abab;
+  }
+  70% { 
+    background-color:#2ee2f3;
+  }
+  80% { 
+    background-color:#be44f7;
+  }
+  90% { 
+    background-color:#8044f7;
+  }
+  100% { 
+    background-color:#f744af;
+  }
+  
+}
