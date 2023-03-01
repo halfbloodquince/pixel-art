@@ -27,6 +27,7 @@ export default function Home({ mult, setMult }) {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
+            
             <g className="brush--blur" filter="url(#filter0_f_0_1)">
               <path
                 d="M247 34C247 37.3137 244.314 40 241 40C237.686 40 235 37.3137 235 34C235 30.6863 237.686 28 241 28C244.314 28 247 30.6863 247 34Z"
